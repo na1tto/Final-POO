@@ -10,32 +10,34 @@ public abstract class VeiculoVoador {
     private boolean cargaTransporte;
 
 
-    public abstract void decolar();
+    public abstract void decolar(Voo voo);
 
     public abstract void voar();
 
     public abstract void pousar();
 
-    public boolean criarFichaDeVoo(String origem, String destino, int qntPassageiros, double peso){
-        if (qntPassageiros > capacidadePassageiros || peso > pesoCarga){
-            System.out.println("Quantidade de passageiros ou carga invalida");
+    public boolean criarFichaDeVoo(Voo voo){
+
+        if (voo.getQntPassageiros() > capacidadePassageiros || voo.getPeso() > pesoCarga){
+            System.out.println("A areonave não possui uma ficha de voo ativa (numero de passageiros ou peso invalidos)");
             return false;
         } else {
-            System.out.println("Ficha de voo criada com sucesso! \n"
-                                + "Modelo: " + getModelo() + " \n"
-                                + "Tipo de Motor: " + getTipoMotor() + " \n"
-                                + "Identificador: " + getIdentificador() + " \n"
-                                + "Origem: " + origem + " \n"
-                                + "Destino: " + destino + " \n"
-                                + "Passageiros: " + qntPassageiros + "/" + getCapacidadePassageiros() + "\n"
-                                + "Carga: " + peso + "/" + getPesoCarga());
+            System.out.println("Ficha de voo ativa! \n");
+
+
             return true;
         }
     }
 
-    public boolean criarFichaDeVoo(){
+    public void exibirFichaDeVoo(Voo voo){System.out.println
+                                ("Modelo: " + getModelo() + " \n"
+                                + "Tipo de Motor: " + getTipoMotor() + " \n"
+                                + "Identificador: " + getIdentificador() + " \n"
+                                + "Origem: " + voo.getOrigem() + " \n"
+                                + "Destino: " + voo.getDestino() + " \n"
+                                + "Passageiros: " + voo.getQntPassageiros() + "/" + getCapacidadePassageiros() + "\n"
+                                + "Carga: " + voo.getPeso() + "/" + getPesoCarga());
 
-        return true;
     }
 
     public String getTipoMotor() {

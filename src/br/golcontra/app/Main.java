@@ -1,7 +1,10 @@
 package br.golcontra.app;
-
+import br.golcontra.model.Voo;
 import br.golcontra.model.Aviao;
 import br.golcontra.model.Helicoptero;
+
+// no momento estamos descrevendo nosso projeto como uma abstração embrionária de um sistema de identificação de aeronaves
+// que pode estar presente em um aeroporto
 
 public class Main {
     public static void main(String[] args) {
@@ -27,6 +30,7 @@ public class Main {
 
         System.out.println("-----------");
 
+        // Instanciando um avião
         Aviao aviao = new Aviao();
 
         aviao.setTipoMotor("A Jato");
@@ -36,11 +40,20 @@ public class Main {
         aviao.setPesoCarga(150);
         aviao.setCargaTransporte(true);
 
-        aviao.criarFichaDeVoo("Sao Paulo", "Brasilia", 40, 125);
+        // Istanciamos uma classe voo para podermos criar a nossa ficha de voo, cada avião deve possuir uma ficha de voo
+        // ATIVA para poder decolar do nosso aeroporto
+
+        Voo voo = new Voo("Sao paulo", "Brasilia", 40, 150);
+        aviao.criarFichaDeVoo(voo);
 
         System.out.println("-----------");
 
-        aviao.decolar();
+        aviao.exibirFichaDeVoo(voo);
+
+        System.out.println("-----------");
+
+        // redundância de parâmetros, será necessário criar uma classe Voo para armazenar os parâmetros
+        aviao.decolar(voo);
         aviao.voar();
         aviao.pousar();
 

@@ -6,7 +6,7 @@ public class Helicoptero extends VeiculoVoador {
 
 
     @Override
-    public void decolar(){
+    public void decolar(Voo voo){
         System.out.println("O " + getModelo() + " esta decolando...");
     }
 
