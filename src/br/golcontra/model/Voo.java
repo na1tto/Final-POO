@@ -1,6 +1,7 @@
 package br.golcontra.model;
 
-// a classe Voo serve para armazenar os atributos relevantes para criar uma ficha de voo (não so isso), uma classe que apenas armazena
+// a classe Voo serve para armazenar os atributos relevantes para criar uma ficha de voo (não so isso), uma classe
+// que apenas armazena
 // valores é chamada de record class. a utilizção de record classes facilita a passagem de parâmetros durante o código,
 // permitindo facilitar chamadas de métodos (eu acho), pois só é passado o objeto voo como parâmetro,
 // e não um monte de dados repetidos

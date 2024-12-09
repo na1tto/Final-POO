@@ -3,7 +3,8 @@ import br.golcontra.model.Voo;
 import br.golcontra.model.Aviao;
 import br.golcontra.model.Helicoptero;
 
-// no momento estamos descrevendo nosso projeto como uma abstração embrionária de um sistema de identificação de aeronaves
+// no momento estamos descrevendo o nosso projeto como uma abstração embrionária de um sistema de identificação
+// ou catalogação de aeronaves
 // que pode estar presente em um aeroporto
 
 public class Main {
@@ -38,7 +39,7 @@ public class Main {
         aviao.setIdentificador("103860");
         aviao.setCapacidadePassageiros(50);
         aviao.setPesoCarga(150);
-        aviao.setCargaTransporte(true);
+        aviao.setCargaTransporte(false);
 
         // Istanciamos uma classe voo para podermos criar a nossa ficha de voo, cada avião deve possuir uma ficha de voo
         // ATIVA para poder decolar do nosso aeroporto
@@ -52,10 +53,33 @@ public class Main {
 
         System.out.println("-----------");
 
+
         // redundância de parâmetros, será necessário criar uma classe Voo para armazenar os parâmetros
         aviao.decolar(voo);
         aviao.voar();
         aviao.pousar();
+
+        Aviao aviao2 = new Aviao();
+        aviao2.setTipoMotor("Turbohelice");
+        aviao2.setModelo("Aviao da fazenda");
+        aviao2.setIdentificador("154623");
+        aviao2.setCapacidadePassageiros(30);
+        aviao2.setPesoCarga(100);
+        aviao2.setCargaTransporte(false);
+
+        Voo voo2 = new Voo("Marabá", "Belém", 15, 90);
+
+        aviao2.criarFichaDeVoo(voo2);
+
+        System.out.println("-----------");
+
+        aviao2.exibirFichaDeVoo(voo2);
+
+        System.out.println("-----------");
+
+        aviao2.decolar(voo2);
+        aviao2.voar();
+        aviao2.pousar();
 
         /*System.out.println("\t Seja bem vindo ao nosso aeroporto!");
 
