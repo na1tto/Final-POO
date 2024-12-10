@@ -5,7 +5,6 @@ public class Aviao extends VeiculoVoador {
     private String companhiaAerea;
     private String[] classeVoo;
 
-
     @Override
     public void decolar(Voo voo) {
         // REGRA DE NEGÓCIO: a areonave só deve decolar se possuir uma ficha de voo ATIVA.

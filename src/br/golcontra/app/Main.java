@@ -4,8 +4,8 @@ import br.golcontra.model.Aviao;
 import br.golcontra.model.Helicoptero;
 
 // no momento estamos descrevendo o nosso projeto como uma abstração embrionária de um sistema de identificação
-// ou catalogação de aeronaves
-// que pode estar presente em um aeroporto
+// ou catalogação de aeronaves que pode estar presente em um aeroporto ou em uma empresa que fornece serviços
+// privados de transporte aereo exclusivos
 
 public class Main {
     public static void main(String[] args) {
@@ -45,17 +45,22 @@ public class Main {
         // ATIVA para poder decolar do nosso aeroporto
 
         Voo voo = new Voo("Sao paulo", "Brasilia", 40, 150);
+
+        // o record object voo é passado como PARÂMETRO para o nosso metodo de criação de ficha
         aviao.criarFichaDeVoo(voo);
 
         System.out.println("-----------");
 
+        // O record object voo é passada como parâmetro para a nossa função de exibição de ficha também!
         aviao.exibirFichaDeVoo(voo);
 
         System.out.println("-----------");
 
+        // antes: redundância de parâmetros
+        // aviao.decolar("Sao paulo", "Brasilia", 40, 150)
 
-        // redundância de parâmetros, será necessário criar uma classe Voo para armazenar os parâmetros
         aviao.decolar(voo);
+        // depois: apenas um record object é passado, sem precisar repetir parametros extensos!
         aviao.voar();
         aviao.pousar();
 

@@ -15,7 +15,7 @@ public record Voo(String origem, String destino, int qntPassageiros, double peso
         this.peso = peso;
     }
 
-    // a maior característica dessa classe é não possuir getters, apenas setters!
+    // a maior característica dessa classe é não possuir setter, apenas getters!
     public String getOrigem() {
         return origem;
     }
