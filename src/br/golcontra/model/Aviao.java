@@ -12,7 +12,6 @@ public class Aviao extends VeiculoVoador {
             System.out.println("O " + getModelo() + " esta decolando");
         }
     }
-
     @Override
     public void voar() {
         super.voar();
@@ -20,7 +19,6 @@ public class Aviao extends VeiculoVoador {
             System.out.println("O " + getModelo() + " esta voando");
         }
     }
-
     @Override
     public void pousar(){
         super.pousar();
@@ -28,7 +26,6 @@ public class Aviao extends VeiculoVoador {
             System.out.println("O " + getModelo() + " esta pousando");
         }
     }
-
     @Override
     public void exibirFichaDeVoo(Voo voo){
         if(isPossuiFicha()){

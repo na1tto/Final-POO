@@ -3,8 +3,6 @@ import br.golcontra.model.Voo;
 import br.golcontra.model.Aviao;
 import br.golcontra.model.Helicoptero;
 
-
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("-----------# Seja bem vindo ao nosso projeto! #-------------");
