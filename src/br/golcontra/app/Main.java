@@ -118,7 +118,7 @@ public class Main {
         Helicoptero helicoptero1 = new Helicoptero();
 
         helicoptero1.setModelo("UkiVoa");
-        helicoptero1.setNumHelices(4);
+        helicoptero1.setNumPas(4);
         helicoptero1.setCargaTransporte("comercial");
         helicoptero1.setCapacidadePassageiros(5);
         helicoptero1.setPesoCarga(200);
@@ -142,8 +142,6 @@ public class Main {
         helicoptero1.pousar();
 
         System.out.println("-----------");
-        System.out.println("-----------");
-        System.out.println(" ");
 
     }
 }

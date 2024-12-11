@@ -11,7 +11,6 @@ public abstract class VeiculoVoador {
     private boolean isVoando = false;
     private boolean possuiFicha = false;
 
-
     public void decolar(Voo voo){
         if(!possuiFicha){
             System.out.println("Não é possível decolar, pois o veículo não possui ficha de voo ativa.");
@@ -70,7 +69,6 @@ public abstract class VeiculoVoador {
                                 + "Destino: " + voo.getDestino() + " \n"
                                 + "Passageiros: " + voo.getQntPassageiros() + "/" + getCapacidadePassageiros() + "\n"
                                 + "Carga: " + voo.getPeso() + "/" + getPesoCarga());
-
         }else{
             System.out.println("Ficha de voo inexistente. \n");
         }
