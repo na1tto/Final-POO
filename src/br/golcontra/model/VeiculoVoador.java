@@ -7,34 +7,76 @@ public abstract class VeiculoVoador {
     private String identificador;
     private int capacidadePassageiros;
     private double pesoCarga;
-    private boolean cargaTransporte;
+    private String cargaTransporte;
+    private boolean isVoando = false;
+    private boolean possuiFicha = false;
 
-    public void decolar(Voo voo){}
 
-    public abstract void voar();
-
-    public abstract void pousar();
-
-    // O metodo de criacao de ficha recebe como parametro uma instancia da classe Voo
-    public boolean criarFichaDeVoo(Voo voo){
-        if (voo.getQntPassageiros() > capacidadePassageiros || voo.getPeso() > pesoCarga){
-            System.out.println("A areonave não possui uma ficha de voo ativa (numero de passageiros ou peso invalidos)");
-            return false;
-        } else {
-            System.out.println("Ficha de voo ativa! \n");
-            return true;
+    public void decolar(Voo voo){
+        if(!possuiFicha){
+            System.out.println("Não é possível decolar, pois o veículo não possui ficha de voo ativa.");
+            System.out.println(" ");
+            this.isVoando = false;
+        } else{
+            this.isVoando = true;
         }
     }
-    public void exibirFichaDeVoo(Voo voo){System.out.println
+
+    public void voar(){
+        if(!this.isVoando){
+            System.out.println("Não é possível voar, pois o veículo sequer decolou.");
+        }
+    };
+
+    public void pousar(){
+        if(!this.isVoando) {
+            System.out.println("Não é possível possível pousar, pois o veículo sequer saiu do chão.");
+            System.out.println(" ");
+        }
+    };
+
+    // O metodo de criacao de ficha recebe como parametro uma instancia da classe Voo
+
+    public void criarFichaDeVoo(Voo voo){
+
+        if(this.cargaTransporte.equals("comercial")){
+            if (voo.getQntPassageiros() > capacidadePassageiros || voo.getPeso() > pesoCarga) {
+                System.out.println("A aeronave não possui uma ficha de voo ativa (numero de passageiros ou peso invalidos)");
+                this.possuiFicha = false;
+            } else {
+                System.out.println("Ficha de voo ativa! \n");
+                this.possuiFicha = true;
+            }
+        } else if (this.cargaTransporte.equals("carga")){
+            if (voo.getPeso() > pesoCarga) {
+                setCapacidadePassageiros(0);
+                System.out.println("A aeronave não possui uma ficha de voo ativa (pesos invalidos)");
+                this.possuiFicha = false;
+            } else {
+                System.out.println("Ficha de voo ativa! \n");
+                this.possuiFicha = true;
+            }
+        }
+    }
+
+    public void exibirFichaDeVoo(Voo voo){
+        if(possuiFicha){
+                                System.out.println
                                 ("Modelo: " + getModelo() + " \n"
                                 + "Tipo de Motor: " + getTipoMotor() + " \n"
                                 + "Identificador: " + getIdentificador() + " \n"
+                                + "Tipo de transporte: " + getCargaTransporte() + " \n"
                                 + "Origem: " + voo.getOrigem() + " \n"
                                 + "Destino: " + voo.getDestino() + " \n"
                                 + "Passageiros: " + voo.getQntPassageiros() + "/" + getCapacidadePassageiros() + "\n"
                                 + "Carga: " + voo.getPeso() + "/" + getPesoCarga());
 
+        }else{
+            System.out.println("Ficha de voo inexistente. \n");
+        }
     }
+
+    //Setter e Getters
 
     public String getTipoMotor() {
         return tipoMotor;
@@ -66,10 +108,27 @@ public abstract class VeiculoVoador {
     public void setPesoCarga(double pesoCarga) {
         this.pesoCarga = pesoCarga;
     }
-    public boolean IsCargaTransporte(){
+    public String getCargaTransporte(){
         return cargaTransporte;
     }
-    public void setCargaTransporte(boolean cargaTransporte) {
+
+    public void setCargaTransporte(String cargaTransporte) {
         this.cargaTransporte = cargaTransporte;
+    }
+
+    public void setIsVoando(boolean isVoando){
+        this.isVoando = isVoando;
+    }
+
+    public boolean getIsVoando(){
+        return this.isVoando;
+    }
+
+    public boolean isPossuiFicha() {
+        return possuiFicha;
+    }
+
+    public void setPossuiFicha(boolean possuiFicha) {
+        this.possuiFicha = possuiFicha;
     }
 }

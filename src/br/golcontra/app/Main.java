@@ -3,15 +3,12 @@ import br.golcontra.model.Voo;
 import br.golcontra.model.Aviao;
 import br.golcontra.model.Helicoptero;
 
-// no momento estamos descrevendo o nosso projeto como uma abstração embrionária de um sistema de identificação
-// ou catalogação de aeronaves que pode estar presente em um aeroporto ou em uma empresa que fornece serviços
-// privados de transporte aereo exclusivos
+
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("-----------# Seja bem vindo ao nosso projeto! #-------------");
-
-        //Coisa pra carregar!!!!!!!!!!!!!!!!!!!
+        //Animação de carregamento
         try{
             int repeticoes = 3;
             int delay = 500;
@@ -39,9 +36,9 @@ public class Main {
         aviao.setIdentificador("103860");
         aviao.setCapacidadePassageiros(50);
         aviao.setPesoCarga(150);
-        aviao.setCargaTransporte(false);
+        aviao.setCargaTransporte("comercial");
 
-        // Istanciamos uma classe voo para podermos criar a nossa ficha de voo, cada avião deve possuir uma ficha de voo
+        // Instanciamos uma classe voo para podermos criar a nossa ficha de voo, cada avião deve possuir uma ficha de voo
         // ATIVA para poder decolar do nosso aeroporto
 
         Voo voo = new Voo("Sao paulo", "Brasilia", 40, 150);
@@ -63,16 +60,18 @@ public class Main {
         // depois: apenas um record object é passado, sem precisar repetir parametros extensos!
         aviao.voar();
         aviao.pousar();
+        System.out.println("-----------");
+        System.out.println("-----------");
+        System.out.println(" ");
 
         Aviao aviao2 = new Aviao();
         aviao2.setTipoMotor("Turbohelice");
         aviao2.setModelo("Aviao da fazenda");
         aviao2.setIdentificador("154623");
-        aviao2.setCapacidadePassageiros(30);
         aviao2.setPesoCarga(100);
-        aviao2.setCargaTransporte(false);
+        aviao2.setCargaTransporte("carga");
 
-        Voo voo2 = new Voo("Marabá", "Belém", 15, 90);
+        Voo voo2 = new Voo("Marabá", "Belém", 0, 90);
 
         aviao2.criarFichaDeVoo(voo2);
 
@@ -86,14 +85,65 @@ public class Main {
         aviao2.voar();
         aviao2.pousar();
 
-        /*System.out.println("\t Seja bem vindo ao nosso aeroporto!");
+        System.out.println("-----------");
+        System.out.println("-----------");
+        System.out.println(" ");
 
-        System.out.println("--------------------------------");
+        Aviao aviao3 = new Aviao();
+        aviao3.setTipoMotor("Motor de pop100");
+        aviao3.setModelo("O pior");
+        aviao3.setIdentificador("00000");
+        aviao3.setPesoCarga(20);
+        aviao3.setCapacidadePassageiros(50);
+        aviao3.setCargaTransporte("comercial");
 
-        Helicoptero helicoptero = new Helicoptero();
-        helicoptero.decolar();
-        helicoptero.voar();
-        helicoptero.pousar(); */
-        
+        Voo voo3 = new Voo("Canaa dos Carajas", "Tailandia", 100, 100);
+
+        aviao3.criarFichaDeVoo(voo3);
+
+        System.out.println("-----------");
+
+        aviao3.exibirFichaDeVoo(voo3);
+
+        System.out.println("-----------");
+
+        aviao3.decolar(voo3);
+        aviao3.voar();
+        aviao3.pousar();
+
+        System.out.println("-----------");
+        System.out.println("-----------");
+        System.out.println(" ");
+
+        Helicoptero helicoptero1 = new Helicoptero();
+
+        helicoptero1.setModelo("UkiVoa");
+        helicoptero1.setNumHelices(4);
+        helicoptero1.setCargaTransporte("comercial");
+        helicoptero1.setCapacidadePassageiros(5);
+        helicoptero1.setPesoCarga(200);
+        helicoptero1.setTipoMotor("Chevette");
+        helicoptero1.setIdentificador("6666");
+
+        Voo voo4 = new Voo("Boca da Onca", "Xique-xique", 2, 100);
+
+        helicoptero1.criarFichaDeVoo(voo4);
+
+        System.out.println("-----------");
+
+        helicoptero1.exibirFichaDeVoo(voo4);
+
+        System.out.println("-----------");
+
+        helicoptero1.decolar(voo4);
+
+        helicoptero1.voar();
+
+        helicoptero1.pousar();
+
+        System.out.println("-----------");
+        System.out.println("-----------");
+        System.out.println(" ");
+
     }
 }
